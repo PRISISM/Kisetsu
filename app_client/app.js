@@ -4,7 +4,8 @@ angular.module('kisetsuApp', ['ngRoute']);
 function config ($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
-			title: 'Seasonal',
+			// Update title dynamically? Use dotenv?
+			title: 'Winter 2017',
 			controller: 'homeCtrl',
 			controllerAs: 'vm',
 			templateUrl: 'home/home.view.html'

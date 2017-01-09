@@ -1,5 +1,12 @@
 body {
   padding-top: 70px;
+  background-color: #f1f1f1;
+}
+
+/*Navbar*/
+
+.navbar-brand {
+	font-family: 'Fredoka One', cursive;
 }
 
 /*a {

@@ -7,6 +7,9 @@ html(ng-app='kisetsuApp')
     meta(charset='utf-8')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css", rel="stylesheet", integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT", crossorigin="anonymous")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+
+    link(href="https://fonts.googleapis.com/css?family=Fredoka+One", rel="stylesheet")
   body
     nav.navbar.navbar-default.navbar-fixed-top
         .container
@@ -16,7 +19,9 @@ html(ng-app='kisetsuApp')
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
-                a.navbar-brand(href='#') Kisetsu
+                a.navbar-brand(href='#') 
+                    li.fa.fa-leaf 
+                    |   Kisetsu
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav
                     li.active
@@ -40,8 +45,12 @@ html(ng-app='kisetsuApp')
                                 a(href='#') Separated link
                             li
                                 a(href='#') One more separated link
-    
-
+            //- ul.nav.navbar-nav.navbar-right
+            //-     li
+            //-         a(href='about')
+            //-             span.fa-stack.fa-lg
+            //-                 i.fa.fa-square-o.fa-stack-2x
+            //-                 i.fa.fa-question.fa-stack-1x
     .container
         div(ng-view)
             block content
@@ -52,3 +61,5 @@ html(ng-app='kisetsuApp')
   script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" integrity="sha256-3SrLjPeRPa1ofM280r+OMcUjJZKLWJHr6SRtRu3dRb0=" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js" integrity="sha256-SUsNyx9Kr9rHA3thrzSefdS883z1Q0ZOLXPF3p2Tt+o=" crossorigin="anonymous")
   script(src='/app.js')
+  script(src='/home/home.controller.js')
+  script(src='/common/services/aniData.service.js')
