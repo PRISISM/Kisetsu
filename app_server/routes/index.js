@@ -5,7 +5,7 @@ var ctrlOthers = require('../controllers/others');
 /* GET home page. */
 router.get('/', ctrlOthers.angularApp);
 
-// Catch all
-router.get('*', ctrlOthers.angularApp);
+// // Catch all
+// router.get('*', ctrlOthers.angularApp);
 
 module.exports = router;
