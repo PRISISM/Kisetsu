@@ -19,7 +19,7 @@ function seasonalData($http, $location) {
 			// Second promise
 			return $http({
 				method: 'GET',
-				url: 'http://anilist.co/api/browse/anime',
+				url: 'https://anilist.co/api/browse/anime',
 				params: {
 					access_token: data.access_token,
 					season: 'winter',
@@ -38,10 +38,4 @@ function seasonalData($http, $location) {
 		getData: getData
 	};
 
-
-	// var service = {
-	// 	anime: tokenResult()
-	// };
-	// console.log(service);
-	// return service;
 }
