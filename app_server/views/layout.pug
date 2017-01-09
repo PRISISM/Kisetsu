@@ -26,9 +26,13 @@ html(ng-app='kisetsuApp')
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav
                     li.active
-                        a(href='#') Airing
+                        a(href='#') 
+                            i.fa.fa-tv
+                            |  Current Season
                     li
-                        a(href='#') Ranking
+                        a(href='#') 
+                            i.fa.fa-trophy
+                            |  Ranking
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                             | Dropdown 
@@ -70,3 +74,4 @@ html(ng-app='kisetsuApp')
   script(src='/app.js')
   script(src='/home/home.controller.js')
   script(src='/common/services/aniData.service.js')
+  script(src='/common/directives/tooltip/tooltip.directive.js')

@@ -4,14 +4,12 @@
 </h1>
 
 <div class="clearfix home-wrap">
-	<div class="anime-wrapper" ng-repeat="anime in vm.anime">
+	<div class="anime-wrapper" ng-repeat="anime in vm.anime" ani-id = "anime.id">
 		<a href="#" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
-			
 		</a>
 
-		<div class="anime-title">
+		<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="top" tooltip>
 			<a href="#" ng-bind="anime.title_romaji"></a>
-			<i class="material-icons">sentiment_very_satisfied</i>
 		</div>
 
 	</div>

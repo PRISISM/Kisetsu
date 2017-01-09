@@ -12,4 +12,7 @@ function homeCtrl (anidata) {
 		vm.anime = result.data;
 		// console.log(vm.anime);
 	});
+
+	
+
 }
