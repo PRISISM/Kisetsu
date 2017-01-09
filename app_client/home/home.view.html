@@ -3,8 +3,17 @@
 	{{vm.title}}
 </h1>
 
-<div ng-repeat="anime in vm.anime">
-	<p ng-bind="anime.title_romaji">
-		
-	</p>
+<div class="clearfix home-wrap">
+	<div class="anime-wrapper" ng-repeat="anime in vm.anime">
+		<a href="#" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
+			
+		</a>
+
+		<div class="anime-title">
+			<a href="#" ng-bind="anime.title_romaji"></a>
+			<i class="material-icons">sentiment_very_satisfied</i>
+		</div>
+
+	</div>
+
 </div>

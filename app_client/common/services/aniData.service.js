@@ -24,6 +24,9 @@ function seasonalData($http, $location) {
 					access_token: data.access_token,
 					season: 'winter',
 					year: '2017',
+					//temp
+					type: 'tv',
+					sort: 'title_romaji',
 					full_page: true,
 					airing_data: true
 				}

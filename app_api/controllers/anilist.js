@@ -1,5 +1,7 @@
 var request = require('request');
-var Anime = require('../models/anime');
+var mongoose = require('mongoose');
+require('../models/anime');
+var Anime = mongoose.model('Anime');
 
 // Load in dotenv variables if local
 if ((process.env.NODE_ENV || 'development') === 'development') {

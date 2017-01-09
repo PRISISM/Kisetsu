@@ -10,6 +10,6 @@ function homeCtrl (anidata) {
 
 	dataPromise.then(function(result) {
 		vm.anime = result.data;
-
+		// console.log(vm.anime);
 	});
 }
