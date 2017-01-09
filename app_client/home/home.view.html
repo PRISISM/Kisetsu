@@ -24,11 +24,11 @@
 <div class="container">
 	<div class="clearfix home-wrap">
 		<div class="anime-wrapper" ng-repeat="anime in vm.anime" ani-id = "anime.id">
-			<a href="#" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
+			<a ng-href="//anilist.co/anime/{{anime.id}}" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
 			</a>
 
 			<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="top" tooltip>
-				<a href="#" ng-bind="anime.title_romaji"></a>
+				<a ng-href="//anilist.co/anime/{{anime.id}}" ng-bind="anime.title_romaji" target="_blank"></a>
 			</div>
 
 		</div>
