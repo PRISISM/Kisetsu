@@ -1,4 +1,5 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -14,6 +15,21 @@ var app = express();
 if ((process.env.NODE_ENV || 'development') === 'development') {
   require('dotenv').load();
 } 
+
+// Put a database connection under var 'database' in .env file
+mongoose.connect(process.env.database);
+
+// On successful connection
+mongoose.connection.on('connected', function () {  
+  console.log('Mongoose default connection open to ' + process.env.database);
+}); 
+
+// If the connection throws an error
+mongoose.connection.on('error',function (err) {  
+  console.log('Mongoose default connection error: ' + err);
+}); 
+
+require('./app_api/models/anime');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server' ,'views'));

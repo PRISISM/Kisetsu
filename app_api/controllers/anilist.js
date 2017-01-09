@@ -1,4 +1,5 @@
 var request = require('request');
+var Anime = require('../models/anime');
 
 // Load in dotenv variables if local
 if ((process.env.NODE_ENV || 'development') === 'development') {

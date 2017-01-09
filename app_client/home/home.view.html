@@ -3,5 +3,8 @@
 	{{vm.title}}
 </h1>
 
-<p ng-bind="vm.anime[0].title_english">
-</p>
+<div ng-repeat="anime in vm.anime">
+	<p ng-bind="anime.title_romaji">
+		
+	</p>
+</div>
