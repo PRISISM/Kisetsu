@@ -5,12 +5,12 @@ html(ng-app='kisetsuApp')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     base(href='/')
     meta(charset='utf-8')
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css", rel="stylesheet", integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT", crossorigin="anonymous")
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
 
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
-    link(href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Open+Sans|Lato", rel="stylesheet")
   body
     nav.navbar.navbar-default.navbar-fixed-top
         .container
@@ -56,9 +56,8 @@ html(ng-app='kisetsuApp')
             //-             span.fa-stack.fa-lg
             //-                 i.fa.fa-square-o.fa-stack-2x
             //-                 i.fa.fa-question.fa-stack-1x
-    .container
-        div(ng-view)
-            block content
+    div(ng-view)
+        block content
 
     //- footer here
 

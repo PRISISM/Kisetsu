@@ -1,17 +1,37 @@
-<h1>
-	Home Page
-	{{vm.title}}
-</h1>
+<div class="jumbotron jumbotron-fluid home-banner">
+<!-- 	<div class="home-img">
+ -->		
+	
+	<div class="container">
+		<div class="home-title-wrapper">
+			<h1 class="home-title-main">
+				A new way to follow the anime season.
+			</h1>
 
-<div class="clearfix home-wrap">
-	<div class="anime-wrapper" ng-repeat="anime in vm.anime" ani-id = "anime.id">
-		<a href="#" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
-		</a>
+			<p>
+				Vote weekly on how much you're enjoying each series. 
+				<br>
+				View the live rankings and see if the world agrees. 
+			</p>
 
-		<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="top" tooltip>
-			<a href="#" ng-bind="anime.title_romaji"></a>
+		</div>
+	</div>
+<!-- 	</div>
+ -->	
+
+</div>
+
+<div class="container">
+	<div class="clearfix home-wrap">
+		<div class="anime-wrapper" ng-repeat="anime in vm.anime" ani-id = "anime.id">
+			<a href="#" class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
+			</a>
+
+			<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="top" tooltip>
+				<a href="#" ng-bind="anime.title_romaji"></a>
+			</div>
+
 		</div>
 
 	</div>
-
 </div>
