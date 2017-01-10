@@ -8,10 +8,6 @@ seasonalData.$inject = ['$http', '$location'];
 
 function seasonalData($http, $location) {
 	// Get JSON list of anime
-	// var result = $http.get($location.$$absUrl + 'api/token').then(function successCallback(response) {
-	// 	console.log(response);
-	// 	return response;
-	// });
 
 	var getData = function() {
 		// First promise

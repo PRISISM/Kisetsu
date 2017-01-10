@@ -112,6 +112,10 @@ div.swal2-radio {
 	padding-right: 15px;
 }
 
+.swal2-modal {
+	min-height: 0 !important;
+}
+
 .swal2-radio label input[type=radio] {
 	visibility: hidden;
 }
@@ -121,11 +125,22 @@ div.swal2-radio {
 }
 
 .swal2-radio label input[type=radio] ~ span .material-icons {
-	font-size: 48px;
+	font-size: 36px;
 
 }
 .swal2-radio label input[type=radio]:checked ~ span {
 	color: green;
+}
+
+.swal2-spacer {
+	margin-top: 0px;
+}
+
+@media all and (max-width: 460) {
+	.material-icons {
+		font-size: 36px;
+
+	}
 }
 
 
