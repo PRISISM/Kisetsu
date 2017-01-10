@@ -31,5 +31,12 @@ var animeSchema = new mongoose.Schema({
 		"default": Date.now
 	}
 });
+
+// pre hook for 'findOneAndUpdate'
+animeSchema.pre('findOneAndUpdate', function(next) {
+	this.options.runValidators = true;
+	next();
+});
+
 mongoose.model('Anime', animeSchema);
 mongoose.model('Rating', ratingSchema);

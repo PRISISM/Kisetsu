@@ -45,11 +45,10 @@ function homeCtrl (anidata, ratings) {
 			},
 			preConfirm: function(radio) {
 				return new Promise(function ( resolve, reject) {
-					setTimeout(function() {
-						ratings.postRating(id, radio);
-						resolve();
-
-					}, 4500);
+					var myPromise = ratings.postRating(id, radio);
+					myPromise.then(function(result) {
+						resolve(result);
+					});
 				});
 			}
 

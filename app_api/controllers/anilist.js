@@ -46,6 +46,12 @@ module.exports.rateAnime = function(req, res) {
 		animeId: req.body.id
 	};
 
+	if (req.body.rating < 0 || req.body.rating > 5) {
+		// Restricted values
+		res.send({'message' : 'Rating outside of bounds.'});
+		return;
+	}
+
 	var update = req.body.rating;
 
 	Anime.findOneAndUpdate(query, {
@@ -56,10 +62,10 @@ module.exports.rateAnime = function(req, res) {
 		upsert: true, // Creates Anime if it doesn't exist
 		new: true // Return the updated document
 	}, function(err, data) {
-		if (err)
+		if (err) {
 			console.log(err);
-		else {
-			// console.log('One:', data.ratings);
+			res.send(err);
+		} else {
 			var avg = weightedAverage(data.ratings);
 			console.log('Avg:', avg);
 
@@ -69,10 +75,13 @@ module.exports.rateAnime = function(req, res) {
 				},
 				new: true
 			}, function(err, docs) {
-				if (err)
+				if (err) {
 					console.log(err);
-				else
+					res.send(err);
+				} else {
 					console.log(docs);
+					res.json(docs);
+				}
 			});
 
 		}

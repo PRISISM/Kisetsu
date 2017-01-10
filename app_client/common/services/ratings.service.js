@@ -9,8 +9,6 @@ ratings.$inject = ['$http', '$location'];
 function ratings($http, $location) {
 
 	var postRating = function(id, rating) {
-		console.log(id, rating);
-
 		// // $http post to api 
 		return $http({
 			method: 'POST',
@@ -28,9 +26,14 @@ function ratings($http, $location) {
 				id : parseInt(id),
 				rating: rating
 			}
+		})
+		.then(function (result) {
+			if (result.status !== 200)
+				return [];
+			return result.data;
+		}, function(err) {
+			return [];
 		});
-
-
 
 	};
 
