@@ -134,6 +134,9 @@ a.anime-img:hover {
 
 /*Not yet Aired ends*/
 
+.anime-img:active span {
+	opacity: 1;
+}
 .anime-img:hover span {
 	opacity: 1;
 }
