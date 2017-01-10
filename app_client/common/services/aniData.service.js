@@ -1,3 +1,5 @@
+// A service to retrieve data from the wrapper API defined in /app_api
+
 angular
 	.module('kisetsuApp')
 	.factory('anidata', seasonalData);

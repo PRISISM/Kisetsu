@@ -8,6 +8,8 @@ html(ng-app='kisetsuApp')
     link(href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css", rel="stylesheet", integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT", crossorigin="anonymous")
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/sweetalert.css')
+    link(rel='stylesheet', href='/stylesheets/swal-forms.css')
 
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Open+Sans|Lato", rel="stylesheet")
@@ -38,8 +40,8 @@ html(ng-app='kisetsuApp')
     div(ng-view)
         block content
 
-    div.footer
-        div.container.text-center
+    div.footer    
+      div.container.text-center
             span.text-muted Made with the support of 
                 a(href="https://anilist.co") AniList API
 
@@ -47,6 +49,10 @@ html(ng-app='kisetsuApp')
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" integrity="sha256-3SrLjPeRPa1ofM280r+OMcUjJZKLWJHr6SRtRu3dRb0=" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js" integrity="sha256-SUsNyx9Kr9rHA3thrzSefdS883z1Q0ZOLXPF3p2Tt+o=" crossorigin="anonymous")
+  script(src='/javascripts/js.cookie.js')
+  script(src='/javascripts/sweetalert.min.js')
+  script(src='/javascripts/swal-forms.js')
+
   script(src='/app.js')
   script(src='/home/home.controller.js')
   script(src='/common/services/aniData.service.js')

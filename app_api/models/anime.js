@@ -20,7 +20,11 @@ var animeSchema = new mongoose.Schema({
 	},
 	year: String,
 	season: String,
-	ratings: [ratingSchema],
+	ratings: [Number],
+	averageRating: {
+		type : Number,
+		"default": 0
+	},
 	//include comments here?
 	createdOn: {
 		type: Date,
@@ -28,3 +32,4 @@ var animeSchema = new mongoose.Schema({
 	}
 });
 mongoose.model('Anime', animeSchema);
+mongoose.model('Rating', ratingSchema);

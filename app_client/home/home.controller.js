@@ -13,6 +13,10 @@ function homeCtrl (anidata) {
 		// console.log(vm.anime);
 	});
 
+	vm.testId = function(id) {
+		console.log(id);
+	};
+
 	
 
 }
