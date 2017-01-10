@@ -16,7 +16,8 @@
     "morgan": "~1.7.0",
     "pug": "~2.0.0-beta6",
     "request": "^2.79.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "sweetalert2": "^6.3.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

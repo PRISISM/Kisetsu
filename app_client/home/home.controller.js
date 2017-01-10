@@ -17,6 +17,4 @@ function homeCtrl (anidata) {
 		console.log(id);
 	};
 
-	
-
 }
