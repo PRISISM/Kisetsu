@@ -108,6 +108,27 @@ body {
 	font-size: 14px;
 }
 
+div.swal2-radio {
+	padding-right: 15px;
+}
+
+.swal2-radio label input[type=radio] {
+	visibility: hidden;
+}
+
+.swal2-radio label span {
+	cursor: pointer;
+}
+
+.swal2-radio label input[type=radio] ~ span .material-icons {
+	font-size: 48px;
+
+}
+.swal2-radio label input[type=radio]:checked ~ span {
+	color: green;
+}
+
+
 /* Material Design Icons CSs*/
 .material-icons {
   font-family: 'Material Icons';
