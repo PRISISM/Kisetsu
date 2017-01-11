@@ -90,7 +90,7 @@ function homeCtrl (anidata, ratings) {
 
 	var remainingTime = function(airing_time) {
 		// Calculate HH:mm:ss remaining
-		// 
+		
 		nowTime = moment(Date.now()).format("DD/MM/YYYY HH:mm:ss");
 		nextEpTime = moment(airing_time).format("DD/MM/YYYY HH:mm:ss");
 

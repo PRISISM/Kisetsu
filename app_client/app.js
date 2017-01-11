@@ -11,6 +11,13 @@ function config ($routeProvider, $locationProvider) {
 			templateUrl: 'home/home.view.html'
 		})
 
+		.when('/ranking', {
+			title: 'Rankings',
+			controller: 'rankingCtrl',
+			controllerAs: 'vm',
+			templateUrl: 'ranking/ranking.view.html'
+		})
+
 		.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode(true);

@@ -13,7 +13,7 @@ html(ng-app='kisetsuApp')
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Open+Sans|Lato", rel="stylesheet")
   body
-    nav.navbar.navbar-default.navbar-fixed-top
+    nav(ng-controller="navbarCtrl as vm").navbar.navbar-default.navbar-fixed-top
         .container
             .navbar-header
                 button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
@@ -21,17 +21,17 @@ html(ng-app='kisetsuApp')
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
-                a.navbar-brand(href='#') 
+                a.navbar-brand(href='/') 
                     li.fa.fa-leaf 
                     |   Kisetsu
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav
-                    li.active
-                        a(href='#') 
+                    li(ng-class = "{active: vm.isActive('/')}")
+                        a(href='/') 
                             i.fa.fa-tv
                             |  Current Season
-                    li
-                        a(href='#') 
+                    li(ng-class = "{active: vm.isActive('/ranking')}")
+                        a(href='/ranking') 
                             i.fa.fa-trophy
                             |  Ranking
 
@@ -53,7 +53,11 @@ html(ng-app='kisetsuApp')
   script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js" integrity="sha256-Gn7MUQono8LUxTfRA0WZzJgTua52Udm1Ifrk5421zkA=" crossorigin="anonymous")
 
   script(src='/app.js')
+
+  script(src='/navbar/navbar.controller.js')
   script(src='/home/home.controller.js')
+  script(src='/ranking/ranking.controller.js')
+
   script(src='/common/services/aniData.service.js')
   script(src='/common/services/ratings.service.js')
 
