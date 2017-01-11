@@ -13,9 +13,9 @@
 				<br>
 				View the live rankings and see what's trending.
 				<br>
-				<br>
+<!-- 				<br>
 				Click on an airing anime and start rating!
-			</p>
+ -->		</p>
 
 		</div>
 	</div>
@@ -24,8 +24,8 @@
 
 </div>
 
-<div class="container">
-	<div class="clearfix home-wrap">
+<div class="container home-wrap">
+	<div class="clearfix airing-wrap">
 		<div class="anime-wrapper" ng-repeat="anime in vm.anime">
 			<a class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
 				<div ng-if="anime.airing_status == 'not yet aired'" class="anime-nya"> <p class="nya-text">Not yet Aired</p> </div>
