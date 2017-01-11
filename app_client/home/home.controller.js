@@ -90,13 +90,15 @@ function homeCtrl (anidata, ratings) {
 
 	var remainingTime = function(airing_time) {
 		// Calculate HH:mm:ss remaining
+		// Returns DD:mm:ss
 		
 		nowTime = moment(Date.now()).format("DD/MM/YYYY HH:mm:ss");
 		nextEpTime = moment(airing_time).format("DD/MM/YYYY HH:mm:ss");
 
 		var ms = moment(nextEpTime, "DD/MM/YYYY HH:mm:ss").diff(moment(nowTime, "DD/MM/YYYY HH:mm:ss"));
 		var d = moment.duration(ms);
-		var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+		// var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+		var s = d.days() + ' days, ' + d.minutes() + ' minutes and ' + d.seconds() + ' seconds';
 
 		return s;
 	};
