@@ -217,6 +217,23 @@ div.swal2-radio {
 
 /* Ranking Styles */
 
+.ranking-banner {
+	top: 60px;
+	min-height: 325px;
+	background-color: #f39c12;
+	padding: 0;
+	opacity: 1;
+	z-index: 0;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.5), rgba(255,255,255,0.1)), url('/images/banner-rankings.png');
+	background-image: -o-linear-gradient(right, rgba(0,0,0,0.5), rgba(255,255,255,0.1)), url('/images/banner-rankings.png');
+	background-image: -moz-linear-gradient(right, rgba(0,0,0,0.5), rgba(255,255,255,0.1)), url('/images/banner-rankings.png');
+	background-image: linear-gradient(right, rgba(0,0,0,0.5), rgba(255,255,255,0.1)), url('/images/banner-rankings.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: cover;
+
+}
+
 .ranking-anime-wrapper {
 	width: 150px;
 	height: 215px;
