@@ -1,7 +1,7 @@
 angular
 	.module('kisetsuApp')
 	.controller('rankingCtrl', rankingCtrl)
-	.filter('formatZeroes', formatZeroes);
+	.filter('formatRating', formatRating);
 
 function rankingCtrl (anidata, ratings) {
 	var vm = this;
@@ -10,7 +10,6 @@ function rankingCtrl (anidata, ratings) {
 
 	dataPromise.then(function(result) {
 		vm.mergedAnime = result;
-
 	});
 
 }

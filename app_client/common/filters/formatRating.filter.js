@@ -1,13 +1,14 @@
 // Filter that formats 
 
-angular
+(function()
+{angular
 	.module('kisetsuApp')
 	.filter('formatRating', formatRating);
 
 	function formatRating () {
 		return function(number) {
 
-			if (number === 0.00) {
+			if (number === "") {
 				return 'N/A';
 			}
 
@@ -17,4 +18,4 @@ angular
 
 		};
 
-	} 
+	} })();

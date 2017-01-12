@@ -215,6 +215,47 @@ div.swal2-radio {
 	margin-top: 0px;
 }
 
+/* Ranking Styles */
+
+.ranking-anime-wrapper {
+	width: 150px;
+	height: 215px;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+	position: relative;
+	background-color: #d3d3d3;
+}
+
+
+.ranking-circle {
+	background: rgba(0,0,0, 0.5);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	border-radius: 50%;
+
+	height: 100px;
+	width: 100px;
+
+	line-height: 100px;
+
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ranking-circle p {
+	color: #FFF;
+	font-size: 1.4em;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+}
+
+
+
 /* Material Design Icons CSs*/
 .material-icons {
   font-family: 'Material Icons';
