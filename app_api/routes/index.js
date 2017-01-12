@@ -7,4 +7,6 @@ router.get('/token', ctrlAnilist.getAccessToken);
 
 router.post('/rate', ctrlAnilist.rateAnime);
 
+router.get('/avg', ctrlAnilist.retrieveRatings);
+
 module.exports = router;

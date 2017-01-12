@@ -11,8 +11,12 @@ function seasonalData($http, $location) {
 
 	var getData = function() {
 		// First promise
-		return $http.get($location.$$absUrl + 'api/token').then(function(result) {
-			data = JSON.parse(result.data);
+		return $http.get( $location.protocol() + '://' + location.host + '/api/token').then(function(result) {
+			console.log(result);
+
+			data = result.data.body;
+			year = result.data.year;
+			season = result.data.season;
 
 			// Second promise
 			return $http({
@@ -20,8 +24,8 @@ function seasonalData($http, $location) {
 				url: 'https://anilist.co/api/browse/anime',
 				params: {
 					access_token: data.access_token,
-					season: 'winter',
-					year: '2017',
+					season: season,
+					year: year,
 					//temp
 					type: 'tv',
 					sort: 'title_romaji',
@@ -35,8 +39,45 @@ function seasonalData($http, $location) {
 		});
 	};
 
+	var getRanking = function() {
+		var dataPromise = getData();
+
+		return dataPromise.then(function(result) {
+			anime = result.data;
+
+			return $http({
+				method: 'GET',
+				url: $location.protocol() + '://' + location.host + '/api/avg'
+			}).then(function (avgResult) {	
+				var i;
+
+				//rename id field to animeId in 'anime' doc
+				for(i = 0; i < avgResult.data.length; i++){
+				    avgResult.data[i].id = avgResult.data[i].animeId;
+				    delete avgResult.data[i].animeId;
+				}
+
+				console.log(anime,avgResult);
+
+				mergedAnime =  new jinqJs().from(anime).leftJoin(avgResult.data).on('id').select();
+
+				// sort by average rating
+				mergedAnime.sort(function(a, b) {
+					return (parseFloat(a.averageRating) || 0) - (parseFloat(b.averageRating) || 0);
+				}).reverse();
+
+				// mergedAnime = $.extend(true, {}, avgResult, anime); // array of anime sorted by avg score in descending
+
+				return mergedAnime;
+			});
+
+		});
+
+	};
+
 	return {
-		getData: getData
+		getData: getData,
+		getRanking: getRanking
 	};
 
 }

@@ -29,6 +29,8 @@
 		<div class="anime-wrapper" ng-repeat="anime in vm.anime">
 			<a class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
 				<div ng-if="anime.airing_status == 'not yet aired'" class="anime-nya"> <p class="nya-text">Not yet Aired</p> </div>
+				<div ng-if="anime.airing_status == 'finished airing'" class="anime-fin"> <p class="nya-text">Finished Airing</p> </div>
+
 				<span ng-if="anime.airing_status == 'currently airing'" ng-click="vm.rateAnime(anime.id, anime.title_romaji, anime.airing)" class="rate-show" >
 					<p>Rate</p>
 				</span>

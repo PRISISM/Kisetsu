@@ -1,4 +1,12 @@
-<h1>
-	Ranking
+<div class="container">
 
-</h1>
+	<div ng-repeat= "anime in vm.mergedAnime">
+		<h1 ng-bind="anime.title_romaji"></h1>
+		<h2 ng-bind="anime.averageRating || 'N/A' "></h2>
+		<p ng-bind="anime.ratings.length || 'No Ratings'"></p>
+		<p class="lead" ng-bind="anime.animeId">
+
+	</div>
+	
+
+</div>

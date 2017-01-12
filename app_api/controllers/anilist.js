@@ -10,6 +10,7 @@ if ((process.env.NODE_ENV || 'development') === 'development') {
 }
 
 /* Function to get an access token - no refresh token func yet.
+   Also returns the ENV variables for 'year' and 'season' so the client can submit them back.
  */
 module.exports.getAccessToken = function(req, res) {
 	request({
@@ -29,8 +30,12 @@ module.exports.getAccessToken = function(req, res) {
 			if (err) {
 				return err;
 			} else {
-				console.log(body);
-				res.json(body);
+				var year = process.env.year;
+				var season = process.env.season;
+
+				body = JSON.parse(body); // convert from string to Object form
+
+				res.send({body, year, season}); 
 			}
 
 		});
@@ -38,7 +43,7 @@ module.exports.getAccessToken = function(req, res) {
 };
 
 /*
-	Function to query database 
+	Function to update database with new rating
  */
 module.exports.rateAnime = function(req, res) {
 	console.log(req.body);
@@ -48,7 +53,9 @@ module.exports.rateAnime = function(req, res) {
 
 	if (req.body.rating < 0 || req.body.rating > 5) {
 		// Restricted values
-		res.send({'message' : 'Rating outside of bounds.'});
+		res.send({
+			'message': 'Rating outside of bounds.'
+		});
 		return;
 	}
 
@@ -88,6 +95,42 @@ module.exports.rateAnime = function(req, res) {
 	});
 
 };
+
+
+/*
+	Function to retrieve ratings from database.
+	Only retrieves Anime that have an averageRating field.
+ */
+
+module.exports.retrieveRatings = function(req, res) {
+	Anime.find({}).sort({
+		'averageRating': 'descending'
+	})
+
+	.exec(function(err, result) {
+		if (err) {
+			res.send(err);
+		} else {
+			res.json(result);
+		}
+	});
+};
+
+/*
+	Helper function to get the total number of ratings in the Anime collection
+ */
+
+var totalRatings = function(year, season) {
+	Anime.aggregate([
+		{ "$unwind" : "$ratings" },
+	    {"$group": {"_id": "$_id", "sum": { "$sum": 1}}},
+	    {"$group": {"_id": null, "total_sum": {"$sum": "$sum"}}}
+	], function(err, result) {
+
+
+	});
+};
+
 
 /*
 	Helper function to calculate a weighted average
