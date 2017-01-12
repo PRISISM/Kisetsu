@@ -12,7 +12,7 @@ function seasonalData($http, $location) {
 	var getData = function() {
 		// First promise
 		return $http.get( $location.protocol() + '://' + location.host + '/api/token').then(function(result) {
-			console.log(result);
+			// console.log(result);
 
 			data = result.data.body;
 			year = result.data.year;

@@ -63,7 +63,9 @@ module.exports.rateAnime = function(req, res) {
 
 	Anime.findOneAndUpdate(query, {
 		$push: {
-			ratings: update
+			ratings: update,
+			year: process.env.year,
+			season: process.env.season
 		}
 	}, {
 		upsert: true, // Creates Anime if it doesn't exist
