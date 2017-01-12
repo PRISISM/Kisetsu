@@ -147,7 +147,7 @@ var totalRatings = function(year, season) {
 
 /*
 	Helper function to calculate a weighted average
-	Takes an array of ratings
+	Takes an array of ratings and then applies a smoothing algorithm to the calculated average.
  */
 var weightedAverage = function(nums) {
 	var weightingFactor = 1.5;
@@ -181,3 +181,41 @@ var weightedAverage = function(nums) {
 
 	return modRating;
 };
+
+// Test function to apply smoothing to all in database
+
+// Anime.find({averageRating : {$exists: true}}).stream()
+// 	.on('data', function(doc) {
+// 		console.log(doc);
+// 		var ratings = doc.ratings;
+// 		var oldAvg = doc.averageRating;
+
+// 		weightingFactor = 1.5
+
+// 		var modFactor = Math.pow(weightingFactor, ratings.length);
+// 		var modRating = (3/ modFactor)+ (oldAvg * (1 - 1 / modFactor));
+
+// 		console.log(modRating);
+
+
+// 		query =  {
+// 			animeId : doc.animeId
+// 		};
+
+// 		Anime.findOneAndUpdate(query, {
+// 			$set: {
+// 				averageRating: modRating
+// 			},
+// 			new: true
+// 		}, function(err, docs) {
+// 			if (err) {	
+// 				console.log(err);
+// 			} else {
+// 				console.log(docs);
+// 			}
+// 		});
+
+
+// 	});
+
+// 	

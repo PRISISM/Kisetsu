@@ -57,8 +57,6 @@ function seasonalData($http, $location) {
 				    delete avgResult.data[i].animeId;
 				}
 
-				console.log(anime,avgResult);
-
 				mergedAnime =  new jinqJs().from(anime).leftJoin(avgResult.data).on('id').select();
 
 				// sort by average rating
