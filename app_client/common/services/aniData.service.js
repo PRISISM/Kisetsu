@@ -64,8 +64,6 @@ function seasonalData($http, $location) {
 					return (parseFloat(a.averageRating) || 0) - (parseFloat(b.averageRating) || 0);
 				}).reverse();
 
-				// mergedAnime = $.extend(true, {}, avgResult, anime); // array of anime sorted by avg score in descending
-
 				return mergedAnime;
 			});
 

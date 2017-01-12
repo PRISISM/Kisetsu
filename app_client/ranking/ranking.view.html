@@ -1,12 +1,44 @@
-<div class="container">
+<!-- <div class="container">
 
-	<div ng-repeat= "anime in vm.mergedAnime">
-		<h1 ng-bind="anime.title_romaji"></h1>
-		<h2 ng-bind="anime.averageRating || 'N/A' "></h2>
-		<p ng-bind="anime.ratings.length || 'No Ratings'"></p>
-		<p class="lead" ng-bind="anime.animeId">
+	
+
+
+
+
+	<div class="panel panel-primary" ng-repeat= "anime in vm.mergedAnime">
+		<div class="panel-heading">
+			<h2 class="panel-title" ng-bind="anime.title_romaji"></h1>
+
+		</div>
+
+		<div class="panel-body" ng-style="{'background-image':'url({{anime.image_url_banner}})'}">
+			
+			<h2 ng-bind="anime.averageRating || 'N/A' "></h2>
+			<p ng-bind="anime.ratings.length || 'No Ratings'"></p>
+			<p class="lead" ng-bind="anime.animeId">
+
+		</div>
+
 
 	</div>
 	
 
+</div> -->
+
+<div class="container home-wrap">
+	<div class="clearfix airing-wrap">
+		<div class="anime-wrapper" ng-repeat="anime in vm.mergedAnime">
+			<a class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
+				<div ng-if="anime.airing_status == 'finished airing'" class="anime-fin"> <p class="nya-text">Finished Airing</p> </div>
+				<div> <p class="nya-text" ng-bind= "anime.averageRating | formatRating "></p> </div>
+
+			</a>
+
+			<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="top" tooltip>
+				<a ng-href="//anilist.co/anime/{{anime.id}}" ng-bind="anime.title_romaji" target="_blank"></a>
+			</div>
+
+		</div>
+
+	</div>
 </div>

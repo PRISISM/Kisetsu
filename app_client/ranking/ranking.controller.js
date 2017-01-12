@@ -1,6 +1,7 @@
 angular
 	.module('kisetsuApp')
-	.controller('rankingCtrl', rankingCtrl);
+	.controller('rankingCtrl', rankingCtrl)
+	.filter('formatZeroes', formatZeroes);
 
 function rankingCtrl (anidata, ratings) {
 	var vm = this;
