@@ -1,4 +1,4 @@
-// Filter that formats 
+// Filter that formats average ratings
 
 (function()
 {angular

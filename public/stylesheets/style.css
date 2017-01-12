@@ -254,6 +254,18 @@ div.swal2-radio {
 	font-weight: 700;
 }
 
+.ranking-bottom {
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.8), rgba(255,255,255,0.1));
+	background-image: -o-linear-gradient(top, rgba(0,0,0,0.8), rgba(255,255,255,0.1));
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0.8), rgba(255,255,255,0.1));
+	background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(255,255,255,0.1));
+
+	width: 100%;
+	bottom: 0;
+	color: #FFF;
+	position: absolute;
+
+}
 
 
 /* Material Design Icons CSs*/
