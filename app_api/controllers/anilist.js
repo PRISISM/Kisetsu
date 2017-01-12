@@ -63,7 +63,9 @@ module.exports.rateAnime = function(req, res) {
 
 	Anime.findOneAndUpdate(query, {
 		$push: {
-			ratings: update,
+			ratings: update
+		},
+		$set: {
 			year: process.env.year,
 			season: process.env.season
 		}
@@ -120,14 +122,23 @@ module.exports.retrieveRatings = function(req, res) {
 
 /*
 	Helper function to get the total number of ratings in the Anime collection
+	Used to calculate the weighted average
  */
 
 var totalRatings = function(year, season) {
 	Anime.aggregate([
-		{ "$unwind" : "$ratings" },
+		{"$match" : {year: process.env.year, season: process.env.season}},
+		{"$unwind" : "$ratings" },
 	    {"$group": {"_id": "$_id", "sum": { "$sum": 1}}},
 	    {"$group": {"_id": null, "total_sum": {"$sum": "$sum"}}}
+	    // returns {id : null , total_sum : count}
 	], function(err, result) {
+		if (err) {
+			return (err);
+		}
+		else {
+			return result.total_sum;
+		}
 
 
 	});
@@ -136,8 +147,11 @@ var totalRatings = function(year, season) {
 
 /*
 	Helper function to calculate a weighted average
+	Takes an array of ratings
  */
 var weightedAverage = function(nums) {
+	var weightingFactor = 1.5;
+
 	var counts = {};
 	nums.forEach(function(x) {
 		counts[x] = (counts[x] || 0) + 1;
@@ -155,5 +169,15 @@ var weightedAverage = function(nums) {
 
 
 	sum = sum / numVotes;
-	return sum;
+
+	// Calculations
+	var modFactor = Math.pow(weightingFactor, nums.length);
+	var modRating = (3/ modFactor)+ (sum * (1 - 1 / modFactor));
+
+
+	console.log(modRating);
+
+
+
+	return modRating;
 };
