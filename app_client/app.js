@@ -1,4 +1,4 @@
-angular.module('kisetsuApp', ['ngRoute']);
+angular.module('kisetsuApp', ['ngRoute', 'ordinal']);
 
 // Module configuration
 function config ($routeProvider, $locationProvider) {

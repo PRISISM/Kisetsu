@@ -30,13 +30,17 @@
 			</a>
 
 			<div class="anime-title" data-toggle="tooltip" title="{{anime.title_romaji}}" data-placement="bottom" tooltip>
+
 				<a ng-href="//anilist.co/anime/{{anime.id}}" ng-bind="anime.title_romaji" target="_blank"></a>
-					
+			</div>
+	
 				<div class="ranking-bottom">
-					<p ng-bind="anime.ratings | formatCount "></p>
+					<p ng-bind=" (anime.ratings | formatCount) "></p>
 				</div>
 
-			</div>
+				<div class="ranking-top">
+					<p ng-bind="($index + 1) | ordinal"></p>
+				</div>
 
 		</div>
 
