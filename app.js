@@ -5,6 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var uglifyJs = require('uglify-js');
+var fs = require('fs');
 
 var index = require('./app_server/routes/index');
 
@@ -34,6 +36,31 @@ require('./app_api/models/anime');
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server' ,'views'));
 app.set('view engine', 'pug');
+
+// UglifyJS
+var appClientFiles = [
+  'app_client/app.js',
+  'app_client/ranking/ranking.controller.js',
+  'app_client/home/home.controller.js',
+  'app_client/navbar/navbar.controller.js',
+  'app_client/common/services/aniData.service.js',
+  'app_client/common/services/ratings.service.js',
+  'app_client/common/directives/tooltip/tooltip.directive.js',
+  'app_client/common/filters/formatCount.filter.js',
+  'app_client/common/filters/formatRating.filter.js'
+];
+
+var uglified = uglifyJs.minify(appClientFiles, {compress: false});
+
+fs.writeFile('public/angular/kisetsu.min.js', uglified.code, function(err) {
+  if(err) {
+    console.log(err);
+  }
+  else {
+    console.log('Script generated and saved: kisetsu.min.js');
+  }
+});
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

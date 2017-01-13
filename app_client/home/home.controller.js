@@ -1,7 +1,9 @@
+(function() {
 angular
 	.module('kisetsuApp')
 	.controller('homeCtrl', homeCtrl);
 
+homeCtrl.$inject = ['anidata', 'ratings'];
 function homeCtrl (anidata, ratings) {
 
 	// Set up helper function for last element in array - direct access is fast
@@ -103,6 +105,5 @@ function homeCtrl (anidata, ratings) {
 		return s;
 	};
 
-
-
 }
+})();

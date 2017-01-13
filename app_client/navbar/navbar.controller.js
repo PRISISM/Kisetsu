@@ -1,6 +1,9 @@
+(function() {
 angular
 	.module('kisetsuApp')
 	.controller('navbarCtrl', navbarCtrl);
+
+navbarCtrl.$inject = ['$location'];
 
 function navbarCtrl ($location) {
 	var vm = this;
@@ -10,3 +13,4 @@ function navbarCtrl ($location) {
 	};
 
 }
+})();

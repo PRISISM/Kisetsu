@@ -1,3 +1,5 @@
+(function() {
+
 angular
 	.module('kisetsuApp')
 	.directive('tooltip', tooltip);
@@ -16,3 +18,4 @@ function tooltip() {
         }
     };
 }
+})();

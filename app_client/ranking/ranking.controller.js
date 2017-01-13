@@ -1,6 +1,9 @@
+(function() {
 angular
 	.module('kisetsuApp')
 	.controller('rankingCtrl', rankingCtrl);
+
+rankingCtrl.$inject = ['anidata', 'ratings', '$filter'];
 
 function rankingCtrl (anidata, ratings, $filter) {
 	var vm = this;
@@ -16,3 +19,4 @@ function rankingCtrl (anidata, ratings, $filter) {
 	});
 
 }
+})();

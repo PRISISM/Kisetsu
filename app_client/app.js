@@ -1,3 +1,4 @@
+(function() {
 angular.module('kisetsuApp', ['ngRoute', 'ordinal']);
 
 // Module configuration
@@ -33,5 +34,4 @@ angular
 		});
 
 	}]);
-
-
+})();

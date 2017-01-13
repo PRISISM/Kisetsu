@@ -1,5 +1,5 @@
 // A service defined to post ratings to the API which interfaces with the database
-
+(function() {
 angular
 	.module('kisetsuApp')
 	.factory('ratings', ratings);
@@ -43,3 +43,4 @@ function ratings($http, $location) {
 
 
 }
+})();
