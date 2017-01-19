@@ -9,4 +9,6 @@ router.post('/rate', ctrlAnilist.rateAnime);
 
 router.get('/avg', ctrlAnilist.retrieveRatings);
 
+router.get('/envvar', ctrlAnilist.getEnvVar);
+
 module.exports = router;

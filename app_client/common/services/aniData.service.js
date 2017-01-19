@@ -7,8 +7,16 @@ angular
 seasonalData.$inject = ['$http', '$location'];
 
 function seasonalData($http, $location) {
-	// Get JSON list of anime
 
+	// Just get environment variables
+	var getEnv = function() {
+		return $http.get( $location.protocol() + '://' + location.host + '/api/envvar').then(function(result) {
+			return result;
+
+		});
+	};
+
+	// Get JSON list of anime
 	var getData = function() {
 		// First promise
 		return $http.get( $location.protocol() + '://' + location.host + '/api/token').then(function(result) {
@@ -72,6 +80,7 @@ function seasonalData($http, $location) {
 	};
 
 	return {
+		getEnv: getEnv,
 		getData: getData,
 		getRanking: getRanking
 	};

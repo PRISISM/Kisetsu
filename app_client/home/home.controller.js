@@ -3,8 +3,9 @@ angular
 	.module('kisetsuApp')
 	.controller('homeCtrl', homeCtrl);
 
-homeCtrl.$inject = ['anidata', 'ratings'];
-function homeCtrl (anidata, ratings) {
+homeCtrl.$inject = ['anidata', 'ratings', '$window'];
+function homeCtrl (anidata, ratings, $window) {
+
 
 	// Set up helper function for last element in array - direct access is fast
 	if (!Array.prototype.last){
@@ -14,7 +15,15 @@ function homeCtrl (anidata, ratings) {
 	}
 
 	var vm = this;
-	vm.title = "Winter 2017";
+
+	var envPromise = anidata.getEnv();
+
+	envPromise.then(function(result) {
+		// set page title
+		$window.document.title = result.data.season.charAt(0).toUpperCase() + result.data.season.slice(1) + ' ' + result.data.year + ' - Kisetsu';
+	});
+
+	// $window.document.title = 'test';
 
 	var dataPromise = anidata.getData();
 

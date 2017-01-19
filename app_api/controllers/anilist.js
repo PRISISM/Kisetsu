@@ -9,6 +9,14 @@ if ((process.env.NODE_ENV || 'development') === 'development') {
 	require('dotenv').load();
 }
 
+/* Function that returns the ENV variables for 'year' and 'season'. Used for controller title.
+ */
+module.exports.getEnvVar = function(req, res) {
+	var year = process.env.year;
+	var season = process.env.season;
+	res.send({year, season});
+};
+
 /* Function to get an access token - no refresh token func yet.
    Also returns the ENV variables for 'year' and 'season' so the client can submit them back.
  */
@@ -35,7 +43,7 @@ module.exports.getAccessToken = function(req, res) {
 
 				body = JSON.parse(body); // convert from string to Object form
 
-				res.send({body, year, season}); 
+				res.send({body, year, season});
 			}
 
 		});
