@@ -37,10 +37,13 @@ body {
 .search-form {
 	line-height: 60px;
 	margin-bottom: 0;
+	min-width: 230px;
 }
 
 .search-form input {
 	display: inline-block;
+	border-radius: 20px;
+	border: 1px solid #d3d3d3;
 }
 
 /* Home */
