@@ -18,7 +18,7 @@
 
 <div class="container home-wrap">
 	<div class="clearfix airing-wrap">
-		<div class="ranking-anime-wrapper" ng-repeat="anime in vm.mergedAnime">
+		<div class="ranking-anime-wrapper" ng-repeat="anime in vm.mergedAnime | filter:$root.searchAnime">
 			<a class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
 				<div ng-if="anime.airing_status == 'finished airing'" class="anime-fin"> <p class="nya-text">Finished Airing</p> </div>
 
@@ -39,7 +39,7 @@
 				</div>
 
 				<div class="ranking-top">
-					<p ng-bind="($index + 1) | ordinal"></p>
+					<p ng-bind="(vm.mergedAnime.indexOf(anime) + 1) | ordinal"></p>
 				</div>
 
 		</div>

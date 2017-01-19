@@ -20,7 +20,8 @@
 
 <div class="container home-wrap">
 	<div class="clearfix airing-wrap">
-		<div class="anime-wrapper" ng-repeat="anime in vm.anime">
+		
+		<div class="anime-wrapper" ng-repeat="anime in vm.anime | filter:$root.searchAnime">
 			<a class="anime-img" target="_blank" ng-style="{'background-image':'url({{anime.image_url_lge}})'}">
 				<div ng-if="anime.airing_status == 'not yet aired'" class="anime-nya"> <p class="nya-text">Not yet Aired</p> </div>
 				<div ng-if="anime.airing_status == 'finished airing'" class="anime-fin"> <p class="nya-text">Finished Airing</p> </div>

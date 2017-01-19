@@ -34,6 +34,15 @@ body {
 	margin-bottom: 3px;
 }
 
+.search-form {
+	line-height: 60px;
+	margin-bottom: 0;
+}
+
+.search-form input {
+	display: inline-block;
+}
+
 /* Home */
 
 .home-banner {

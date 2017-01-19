@@ -16,14 +16,14 @@ function homeCtrl (anidata, ratings, $window) {
 
 	var vm = this;
 
+	vm.searchAnime = '';
+
 	var envPromise = anidata.getEnv();
 
 	envPromise.then(function(result) {
 		// set page title
 		$window.document.title = result.data.season.charAt(0).toUpperCase() + result.data.season.slice(1) + ' ' + result.data.year + ' - Kisetsu';
 	});
-
-	// $window.document.title = 'test';
 
 	var dataPromise = anidata.getData();
 
