@@ -18,6 +18,14 @@ body {
 
 }
 
+.navbar-header > .navbar-brand:hover {
+	color: #CD7037;
+}
+
+.navbar-nav > li > a:hover {
+	color: #CD7037 !important;
+}
+
 .footer {
 /*  position: absolute;
 */  bottom: 0;
