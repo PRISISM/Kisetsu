@@ -51,7 +51,7 @@
 			if (Cookies.get(id.toString()) !== undefined) {
 				swal({
 					title: 'Woah! You\'ve already rated this!',
-					text: 'Sorry, please return in ' + remainingTime(airing_data.time) + ' when the next episode airs!',
+					text: 'Sorry! ' + remainingTime(airing_data.time),
 					type: 'warning',
 					timer: 5000
 				}).then(function() {
@@ -94,6 +94,7 @@
 					}
 
 				}).then(function(result) {
+
 					var s = remainingTime(airing_data.time);
 
 					// Set cookie for anime
@@ -103,7 +104,7 @@
 
 					swal({
 						type: 'success',
-						text: 'Rating submitted! Please come back in ' + s + ' when the next episode airs!'
+						text: 'Rating submitted!' + s
 					});
 
 				});
@@ -119,10 +120,15 @@
 
 			var ms = moment(nextEpTime, "DD/MM/YYYY HH:mm:ss").diff(moment(nowTime, "DD/MM/YYYY HH:mm:ss"));
 			var d = moment.duration(ms);
-			// var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+
 			var s = d.days() + ' days, ' + d.minutes() + ' minutes and ' + d.seconds() + ' seconds';
 
-			return s;
+			if (s === "0 days, 0 minutes and 0 seconds") {
+				return 'This series has concluded!';
+			} 
+			else {
+				return 'Please come back in ' + s + ' when the next episode airs!';
+			}
 		};
 
 	}
