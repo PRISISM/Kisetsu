@@ -7,7 +7,7 @@ angular
 seasonalData.$inject = ['$http', '$location'];
 
 function seasonalData($http, $location) {
-
+	
 	// Just get environment variables
 	var getEnv = function() {
 		return $http.get( $location.protocol() + '://' + location.host + '/api/envvar').then(function(result) {
@@ -35,7 +35,7 @@ function seasonalData($http, $location) {
 					season: season,
 					year: year,
 					//temp
-					type: 'tv',
+					// type: 'tv',
 					sort: 'title_romaji',
 					full_page: true,
 					airing_data: true
