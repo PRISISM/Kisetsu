@@ -104,7 +104,7 @@
 
 					swal({
 						type: 'success',
-						text: 'Rating submitted!' + s
+						text: 'Rating submitted! ' + s
 					});
 
 				});
