@@ -22,7 +22,7 @@ module.exports.getEnvVar = function(req, res) {
  */
 module.exports.getAccessToken = function(req, res) {
 	request({
-			url: 'http://anilist.co/api/auth/access_token',
+			url: 'https://anilist.co/api/auth/access_token',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
